@@ -1,9 +1,22 @@
 import { Button } from "@/components/ui/button"
+import { useUser } from "@clerk/clerk-react"
+import { Navigate, Outlet } from "react-router-dom"
+import { Header } from "./components/Custom/Header";
  
 export default function Home() {
+  const {user, isLoaded, isSignIn} = useUser();
+
+  if (!isLoaded) {
+    return <div>Loading...</div>
+  }
+
+  if (!isSignIn && !isLoaded) {
+    return <Navigate to={'/auth/sign-in'} />
+  }
   return (
-    <div className="flex justify-center items-center p-4">
-      <Button>Click me</Button>
+    <div>
+      <Header />
+      <Outlet />
     </div>
   )
 }
