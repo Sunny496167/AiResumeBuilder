@@ -1,12 +1,12 @@
-import React from 'react'
+
 import { Button } from '../ui/button'
 import { Link } from 'react-router-dom'
 import { UserButton, useUser } from '@clerk/clerk-react'
 
 export const Header = () => {
-    const {user, isSignedIn} = useUser();
+    const { isSignedIn } = useUser();
   return (
-    <div className='p-3 px-5 flex justify-between items-center shadow-md'>
+    <div className='p-3 px-24 flex justify-between items-center shadow-md'>
         <img src="/LOGO.png" alt="logo" className='w-14 h-14 rounded-full'/>
         {isSignedIn ?
         <div className='flex gap-2 items-center'>

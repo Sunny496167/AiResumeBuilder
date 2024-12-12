@@ -1,10 +1,9 @@
-import { Button } from "@/components/ui/button"
 import { useUser } from "@clerk/clerk-react"
 import { Navigate, Outlet } from "react-router-dom"
 import { Header } from "./components/Custom/Header";
  
 export default function Home() {
-  const {user, isLoaded, isSignIn} = useUser();
+  const {isLoaded, isSignIn} = useUser();
 
   if (!isLoaded) {
     return <div>Loading...</div>
